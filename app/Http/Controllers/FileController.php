@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\FileValidation;
 use App\Models\File;
 use Illuminate\Http\Request;
+use Inertia\Inertia;
 
 class FileController extends Controller
 {
@@ -12,7 +14,8 @@ class FileController extends Controller
      */
     public function index()
     {
-        //
+        $files = File::all();
+        return Inertia::render('Dashboard',['files'=> $files]);
     }
 
     /**
@@ -20,15 +23,17 @@ class FileController extends Controller
      */
     public function create()
     {
-        //
+        return Inertia::render('CreateDocument');
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(FileValidation $request)
     {
-        //
+        $latest = count(File::all());
+        File::create(['name' => 'template-'. $latest .'.text' , 'data' => $request->all()]);
+        return Inertia::location('/dashboard');
     }
 
     /**
