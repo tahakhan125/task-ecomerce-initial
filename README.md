@@ -10,5 +10,20 @@ This project is based on the Agile methodology, specifically following the pract
 ## Team Structure
 - **Product Owner:** Responsible for defining and prioritizing the product backlog based on customer needs.
 
-## Sprint Cycle
-Our project follows a series of time-boxed iterations, or sprints, typically la
+## How to Setup Project.
+Clone the project
+Composer Install
+Make a copy of .env.example to .env file than setup variables
+npm install
+php artisan key:generate 
+setup database keys for mysql
+run both commands
+npm run dev
+php artisan serve.
+visit the php served server
+than open this project with creating user 
+and then login to visit dashboard.
+then click on create button to naviagte to file create form. 
+
+##Disclaimer
+In period of 1 day it was developed to give a clear image of project working development style.
